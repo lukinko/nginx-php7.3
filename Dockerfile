@@ -1,4 +1,4 @@
-FROM: ubuntu
+FROM ubuntu
 
 ENV PHP_USER_ID=33 \
     PHP_ENABLE_XDEBUG=0 \
