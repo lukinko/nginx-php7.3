@@ -48,6 +48,7 @@ RUN apt-get update; apt-get -y install ssmtp mailutils && \
 	sed -i -e"s/mailhub=mail/mailhub=smtp.i/g" /etc/ssmtp/ssmtp.conf 
 
 ADD start.sh /
+ADD supervisord.conf /etc/
 
 EXPOSE 80
 CMD ["/bin/bash", "/start.sh"]
