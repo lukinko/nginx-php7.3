@@ -28,7 +28,8 @@ curl -L -o wkhtmltox.deb https://github.com/wkhtmltopdf/wkhtmltopdf/releases/dow
 apt install -y ./wkhtmltox.deb && \
 rm wkhtmltox.deb; \
 echo "INSTALING PHP..........................:"; \
-apt install php7.3-gd php7.3-intl php7.3-zip php7.3-soap php7.3-bcmath php7.3-calendar php7.3-exif php7.3-gettext php7.3-mysqli php7.3-pgsql php7.3-mysql php7.3-pgsql php7.3-mongodb && \
+apt install php7.3-fpm php7.3-gd php7.3-intl php7.3-zip php7.3-soap php7.3-bcmath php7.3-calendar php7.3-exif php7.3-gettext php7.3-mysqli php7.3-pgsql php7.3-mysql php7.3-pgsql php7.3-mongodb && \
+mkdir /run/php; \
 echo "INSTALLING FONTS..........................:"; \
 apt-get -y install fonts-liberation; \
 echo "INSTALLING COMPOSER..........................:"; \
