@@ -46,7 +46,11 @@ apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN apt-get update; apt-get -y install ssmtp mailutils && \
 	sed -i -e"s/mailhub=mail/mailhub=smtp.i/g" /etc/ssmtp/ssmtp.conf 
 
-echo "DONE"
+ADD start.sh /
+
+EXPOSE 80
+CMD ["/bin/bash", "/start.sh"]
+WORKDIR /app
 
 
 
