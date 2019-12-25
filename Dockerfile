@@ -14,7 +14,7 @@ RUN apt-get update && \
 echo "INSTALLING locales..........................:"; \
 apt-get install -y locales && echo "pl_PL.UTF-8 UTF-8" | tee /etc/locale.gen && locale-gen && \
 echo "INSTALLING STUFFs..........................:"; \
-apt-get -y install software-properties-common lsb-release curl supervisor joe xtail git unzip gnupg2 && \ 
+apt-get -y install software-properties-common lsb-release curl supervisor joe xtail git unzip gnupg2 iputils-ping net-tools host && \ 
 echo "ADDING ppa ondrej..........................:"; \
 add-apt-repository -y ppa:ondrej/php && \
 echo "INSTALLING NGINX..........................:"; \
