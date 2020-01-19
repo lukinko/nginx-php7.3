@@ -14,7 +14,7 @@ RUN apt-get update && \
 echo "INSTALLING locales..........................:"; \
 apt-get install -y locales && echo "pl_PL.UTF-8 UTF-8" | tee /etc/locale.gen && locale-gen && \
 echo "INSTALLING STUFFs..........................:"; \
-apt-get -y install software-properties-common lsb-release curl supervisor joe xtail git unzip gnupg2 iputils-ping net-tools host && \ 
+apt-get -y install software-properties-common lsb-release wget curl supervisor joe xtail git unzip gnupg2 iputils-ping net-tools host && \ 
 echo "ADDING ppa ondrej..........................:"; \
 add-apt-repository -y ppa:ondrej/php && \
 echo "INSTALLING NGINX..........................:"; \
@@ -31,6 +31,8 @@ echo "INSTALING PHP..........................:"; \
 apt -y install php7.3-fpm php7.3-gd php7.3-mbstring php7.3-xml php7.3-curl php7.3-intl php7.3-zip php7.3-soap php7.3-bcmath php7.3-calendar php7.3-exif php7.3-gettext php7.3-mysqli php7.3-pgsql php7.3-mysql php7.3-pgsql php7.3-mongodb && \
 mkdir /run/php; ln -s /usr/bin/php /usr/local/bin/php; \
 sed -i -e"s/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/" /etc/php/7.3/fpm/pool.d/www.conf; \
+echo "INSTALING php-fpm-healthcheck.............:"; \
+wget -O /usr/local/bin/php-fpm-healthcheck https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck && chmod +x /usr/local/bin/php-fpm-healthcheck; \
 echo "INSTALLING FONTS..........................:"; \
 apt-get -y install fonts-liberation; \
 echo "INSTALLING COMPOSER..........................:"; \
